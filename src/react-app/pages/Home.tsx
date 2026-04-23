@@ -76,6 +76,7 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* Custom Order CTA */}
       <section className="relative py-16 md:py-24 overflow-hidden border-y border-gold/20">
         <motion.div
@@ -210,11 +211,11 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {[
-              { title: 'Authentic Sri Lankan Origin', desc: 'Directly sourced from trusted local miners and suppliers.', img: 'https://picsum.photos/seed/srilanka-mine/800/800' },
-              { title: 'Heated & Unheated Options', desc: 'Transparent selection to suit both collectors and commercial buyers.', img: 'https://picsum.photos/seed/gem-heating/800/800' },
-              { title: 'Wide Gem Variety', desc: 'From sapphires and rubies to spinel, garnet, tourmaline, and more.', img: 'https://picsum.photos/seed/gemstones/800/800' },
-              { title: 'Quality Assurance', desc: 'Each gemstone is inspected for natural authenticity and quality standards.', img: 'https://picsum.photos/seed/gemology/800/800' },
-              { title: 'Worldwide Service', desc: 'Serving clients locally and internationally with professionalism and care.', img: 'https://picsum.photos/seed/shipping/800/800' },
+              { title: 'Authentic Sri Lankan Origin', desc: 'Directly sourced from trusted local miners and suppliers.', img: '/Users/kumarapathma/.gemini/antigravity/brain/814bf529-6902-4189-9ba8-872d34dc32f2/origin_mine_1776943228375.png' },
+              { title: 'Heated & Unheated Options', desc: 'Transparent selection to suit both collectors and commercial buyers.', img: '/Users/kumarapathma/.gemini/antigravity/brain/814bf529-6902-4189-9ba8-872d34dc32f2/heated_unheated_gems_1776943257283.png' },
+              { title: 'Wide Gem Variety', desc: 'From sapphires and rubies to spinel, garnet, tourmaline, and more.', img: '/Users/kumarapathma/.gemini/antigravity/brain/814bf529-6902-4189-9ba8-872d34dc32f2/gem_variety_collection_v2_1776943294293.png' },
+              { title: 'Quality Assurance', desc: 'Each gemstone is inspected for natural authenticity and quality standards.', img: '/Users/kumarapathma/.gemini/antigravity/brain/814bf529-6902-4189-9ba8-872d34dc32f2/gemologist_inspection_v2_1776943328657.png' },
+              { title: 'Worldwide Service', desc: 'Serving clients locally and internationally with professionalism and care.', img: '/Users/kumarapathma/.gemini/antigravity/brain/814bf529-6902-4189-9ba8-872d34dc32f2/global_shipping_luxury_v2_1776943368492.png' },
             ].map((item, i) => (
               <div key={i} className="flex flex-col gap-6 group">
                 <div className="aspect-square rounded-2xl overflow-hidden bg-obsidian-800 border border-gold/10">
@@ -282,6 +283,56 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </section>
+
+
+      {/* The Premium Gems Lanka Difference */}
+      <section className="bg-obsidian py-[120px] relative overflow-hidden border-t border-gold/10">
+        <div className="container-luxury relative z-10">
+          <div className="text-center mb-20 max-w-3xl mx-auto">
+            <span className="section-label mb-4 block">Our Commitment</span>
+            <h2 className="text-[clamp(32px,5vw,52px)] font-semibold mb-6 tracking-tight">The Premium Gems Lanka Difference</h2>
+            <p className="text-[17px] text-ivory-muted leading-relaxed">
+              Here’s what sets us apart and provides you with absolute confidence in every acquisition.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {[
+              {
+                title: 'Direct Sourcing',
+                desc: 'We are based in Kandy, Sri Lanka, sourcing the finest gems directly from the source, ensuring authenticity and value.',
+                img: '/src/react-app/assets/Premium Gems Lanka Difference-1.png'
+              },
+              {
+                title: 'Ethical Practices',
+                desc: 'We are committed to responsible practices, ensuring every gem is mined and processed under fair conditions.',
+                img: '/src/react-app/assets/Premium Gems Lanka Difference-2.png'
+              },
+              {
+                title: 'Expert Selection',
+                desc: 'Each stone is hand-selected and verified by our in-house gemologists to meet the highest standards of quality.',
+                img: '/src/react-app/assets/Premium Gems Lanka Difference-3.png'
+              }
+            ].map((item, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: i * 0.2 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <div className="aspect-[4/5] mb-8 overflow-hidden rounded-2xl bg-obsidian-800 border border-gold/10 group-hover:border-gold/30 transition-colors duration-500">
+                  <img src={item.img} alt={item.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000" />
+                </div>
+                <h3 className="text-xl font-medium mb-4 text-gold">{item.title}</h3>
+                <p className="text-[15px] text-ivory-dim leading-relaxed font-light">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+        <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gold/10 to-transparent" />
       </section>
 
       {/* Journal */}

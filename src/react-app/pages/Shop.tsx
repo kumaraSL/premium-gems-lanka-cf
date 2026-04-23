@@ -119,13 +119,43 @@ export default function Shop() {
                 {openFilters.shape ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
               </button>
               {openFilters.shape && (
-                <div className="space-y-1 max-h-48 overflow-y-auto pr-1">
-                  {['All', ...SHAPES].map(shape => (
-                    <label key={shape} className="flex items-center gap-2 cursor-pointer text-sm text-ivory-muted hover:text-gold">
-                      <input type="radio" name="shape" checked={filters.shape === shape} onChange={() => setFilters({ ...filters, shape })} className="accent-gold" />
-                      {shape}
-                    </label>
-                  ))}
+                <div className="grid grid-cols-2 gap-2 max-h-64 overflow-y-auto pr-1 pt-2">
+                  {['All', ...SHAPES].map(shape => {
+                    const imgName = shape === 'All' ? null : 
+                      shape === 'Emerald' ? 'octagonal-rectangle.png' :
+                      shape === 'Octagon' ? 'octagonal-square.png' :
+                      shape === 'Triangle' ? 'trillion.png' :
+                      shape === 'Princess' ? 'octagonal-square.png' :
+                      shape === 'Radiant' ? 'octagonal-rectangle.png' :
+                      shape === 'Asscher' ? 'octagonal-square.png' :
+                      shape === 'Baguette' ? 'octagonal-rectangle.png' :
+                      shape === 'Hexagon' ? 'octagonal-square.png' :
+                      shape === 'Kite' ? 'trillion.png' :
+                      shape === 'Cabochon' ? 'cabochon-round.png' :
+                      `${shape.toLowerCase()}.png`;
+                    
+                    return (
+                      <button 
+                        key={shape} 
+                        onClick={() => setFilters({ ...filters, shape })}
+                        className={`flex flex-col items-center gap-2 p-3 rounded-xl border transition-all ${
+                          filters.shape === shape ? 'border-gold bg-gold/10 text-gold' : 'border-gold/10 text-ivory-muted hover:border-gold/30 hover:bg-white/5'
+                        }`}
+                      >
+                        {shape === 'All' ? (
+                          <div className="w-10 h-10 flex items-center justify-center border border-dashed border-gold/30 rounded-lg text-[10px]">ALL</div>
+                        ) : (
+                          <img 
+                            src={`/src/react-app/assets/gems/shapes/${imgName}`} 
+                            alt={shape} 
+                            className={`w-10 h-10 object-contain invert opacity-80 ${filters.shape === shape ? 'opacity-100' : ''}`} 
+                            onError={(e) => (e.currentTarget.style.display = 'none')}
+                          />
+                        )}
+                        <span className="text-[10px] font-bold uppercase tracking-tighter">{shape}</span>
+                      </button>
+                    );
+                  })}
                 </div>
               )}
             </div>
