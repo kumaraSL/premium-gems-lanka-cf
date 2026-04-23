@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronDown, HelpCircle, Plus, ArrowRight, Check } from 'lucide-react';
-import { api, JournalPost, Product } from '../lib/api';
+import { ChevronDown, HelpCircle, ArrowRight, Check } from 'lucide-react';
+import { api, JournalPost } from '../lib/api';
 import { MOCK_JOURNAL } from '../lib/mock';
 
 const faqData = [

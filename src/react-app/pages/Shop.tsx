@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Plus, ChevronDown, ChevronUp, Zap, Search, DollarSign, Weight, Diamond, Square, Palette, Box } from 'lucide-react';
+import { Plus, ChevronDown, ChevronUp, Zap, Search, DollarSign, Weight, Diamond, Square, Palette } from 'lucide-react';
 import { api, Product } from '../lib/api';
 import { MOCK_PRODUCTS } from '../lib/mock';
 import { useCart } from '../contexts/CartContext';

@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { LogIn } from 'lucide-react';
 
 export default function Login() {
   const { user, isLoading, loginWithGoogle } = useAuth();
@@ -20,7 +19,7 @@ export default function Login() {
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-6 py-24">
       <div className="max-w-md w-full bg-obsidian-800 p-10 rounded-2xl border border-gold/10 text-center">
-        <img src="/logo.png" alt="Premium Gems Lanka" className="h-12 w-auto mx-auto mb-8" />
+        <img src="/src/react-app/assets/logo.png" alt="Premium Gems Lanka" className="h-12 w-auto mx-auto mb-8" />
         <h1 className="text-3xl font-serif mb-3">Welcome Back</h1>
         <p className="text-ivory-muted mb-10">
           Sign in to access your orders, saved items, and exclusive offers.

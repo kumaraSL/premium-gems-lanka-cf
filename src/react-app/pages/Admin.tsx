@@ -4,7 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { api, Product, Order, JournalPost } from '../lib/api';
 import { 
   LayoutDashboard, Package, ShoppingCart, FileText, 
-  Plus, Trash2, Edit, LogOut, CheckCircle, AlertCircle 
+  Plus, Trash2
 } from 'lucide-react';
 import { CATEGORIES, SHAPES, COLORS, TREATMENTS } from '../constants';
 
@@ -98,7 +98,9 @@ export default function Admin() {
         shape: productForm.shape,
         color: productForm.color,
         treatment: productForm.treatment,
-        dimensions: `${productForm.height}x${productForm.width}x${productForm.depth}`
+        height: Number(productForm.height),
+        width: Number(productForm.width),
+        depth: Number(productForm.depth)
       });
 
       setShowProductForm(false);
@@ -130,7 +132,7 @@ export default function Admin() {
 
   const handleUpdateOrderStatus = async (id: string, status: string) => {
     try {
-      await api.orders.updateStatus(id, status);
+      await api.orders.updateStatus(id, status as any);
       fetchData();
     } catch (err) { alert("Update failed"); }
   };
