@@ -4,6 +4,7 @@ import { api, Product } from '../lib/api';
 import { MOCK_PRODUCTS } from '../lib/mock';
 import { useCart } from '../contexts/CartContext';
 import { ArrowLeft, ShoppingBag, Play } from 'lucide-react';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();
@@ -12,6 +13,8 @@ export default function ProductDetail() {
   const [loading, setLoading] = useState(true);
   const [activeMediaIndex, setActiveMediaIndex] = useState(0);
   const { addToCart } = useCart();
+  
+  useDocumentTitle(product ? product.name : 'Certified Gemstones');
 
   useEffect(() => {
     if (!id) return;

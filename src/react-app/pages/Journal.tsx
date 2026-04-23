@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { api, JournalPost } from '../lib/api';
 import { MOCK_JOURNAL } from '../lib/mock';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 export default function Journal() {
   const [posts, setPosts] = useState<JournalPost[]>([]);
   const [loading, setLoading] = useState(true);
+  useDocumentTitle('The Journal');
 
   useEffect(() => {
     api.journal.list()

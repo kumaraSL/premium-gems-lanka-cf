@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import storyBg from '../assets/our_story_bg.jpg';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },
@@ -18,6 +19,7 @@ const staggerContainer = {
 };
 
 export default function OurStory() {
+  useDocumentTitle('Our Story');
   return (
     <main className="bg-obsidian text-ivory-dim">
       {/* Hero */}

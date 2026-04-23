@@ -5,6 +5,7 @@ import { api, Product } from '../lib/api';
 import { MOCK_PRODUCTS } from '../lib/mock';
 import { useCart } from '../contexts/CartContext';
 import { CATEGORIES, SHAPES, COLORS, TREATMENTS } from '../constants';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 // Import shape images
 import oval from '../assets/gems/shapes/oval.png';
@@ -47,6 +48,7 @@ const SHAPE_IMAGES: Record<string, string> = {
 export default function Shop() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  useDocumentTitle('Shop The Collection');
   const [filters, setFilters] = useState({
     category: 'All', shape: 'All', color: 'All', treatment: 'All',
     searchTerm: '', priceRange: [10, 18001], weightRange: [0, 39],

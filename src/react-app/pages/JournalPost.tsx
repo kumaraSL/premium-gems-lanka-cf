@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { api, JournalPost } from '../lib/api';
+import { api, JournalPost as JournalPostType } from '../lib/api';
 import { MOCK_JOURNAL } from '../lib/mock';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 export default function JournalPostPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const [post, setPost] = useState<JournalPost | null>(null);
+  const [post, setPost] = useState<JournalPostType | null>(null);
   const [loading, setLoading] = useState(true);
+
+  useDocumentTitle(post ? post.title : 'The Journal');
 
   useEffect(() => {
     if (!id) return;

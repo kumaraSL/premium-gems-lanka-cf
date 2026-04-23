@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown, HelpCircle, ArrowRight, Check } from 'lucide-react';
 import { api, JournalPost } from '../lib/api';
 import { MOCK_JOURNAL } from '../lib/mock';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 // Assets
 import heroBg from '../assets/hero_bg_srilankan_v2.png';
