@@ -1,8 +1,8 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 
-import { signToken, verifyToken, getTokenFromRequest } from './lib/auth';
-import { uploadToR2, serveR2Object } from './lib/r2';
+import { signToken, verifyToken, getTokenFromRequest, JWTPayload } from './lib/auth';
+import { uploadToR2, getPublicUrl, serveR2Object } from './lib/r2';
 
 export type Env = {
   DB: D1Database;
