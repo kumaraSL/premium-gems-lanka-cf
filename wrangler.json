@@ -3,7 +3,9 @@
   "name": "premium-gems-lanka-cf",
   "main": "./src/worker/index.ts",
   "compatibility_date": "2025-10-08",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "observability": {
     "enabled": true
   },
@@ -16,7 +18,7 @@
     {
       "binding": "DB",
       "database_name": "premium-gems-db",
-      "database_id": "YOUR_D1_DATABASE_ID_HERE"
+      "database_id": "c45b4d83-95d8-4df4-aaf0-d73bb729f51a"
     }
   ],
   "r2_buckets": [
@@ -27,6 +29,6 @@
     }
   ],
   "vars": {
-    "PUBLIC_R2_URL": "https://pub-YOUR_ACCOUNT_HASH.r2.dev"
+    "PUBLIC_R2_URL": "https://pub-fa418068a0b147b3ab9b989ad36dc6fe.r2.dev"
   }
 }
