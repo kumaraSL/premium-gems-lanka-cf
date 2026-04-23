@@ -438,7 +438,19 @@ app.get('/api/journal/:id', async (c) => {
   ).bind(c.req.param('id')).first() as any;
 
   if (!post) return c.json({ error: 'Not found' }, 404);
-  return c.json({ post: { ...post, sections: JSON.parse(post.sections || '[]') } });
+
+  const heroImageUrl = post.hero_image_url && !post.hero_image_url.startsWith('http')
+    ? getPublicUrl(post.hero_image_url, c.env.PUBLIC_R2_URL)
+    : post.hero_image_url;
+
+  const sections = JSON.parse(post.sections || '[]').map((section: any) => ({
+    ...section,
+    imageUrl: section.imageUrl && !section.imageUrl.startsWith('http')
+      ? getPublicUrl(section.imageUrl, c.env.PUBLIC_R2_URL)
+      : section.imageUrl
+  }));
+
+  return c.json({ post: { ...post, hero_image_url: heroImageUrl, sections } });
 });
 
 app.post('/api/journal', async (c) => {
