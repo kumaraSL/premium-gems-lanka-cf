@@ -1,0 +1,9 @@
+# Local development environment variables
+# Copy this to .dev.vars and fill in your values
+# NEVER commit .dev.vars to git
+
+JWT_SECRET=your-very-long-random-secret-string-change-this
+GOOGLE_CLIENT_ID=your-google-client-id.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+PUBLIC_R2_URL=https://pub-YOUR_ACCOUNT_HASH.r2.dev
+ADMIN_EMAIL=rs.mgcp@gmail.com
