@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 export default function Footer() {
   return (
@@ -7,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           {/* Brand Column */}
           <div className="flex flex-col gap-6">
-            <img src="/src/react-app/assets/logo.png" alt="Premium Gems Lanka" className="h-[48px] w-auto self-start" />
+            <img src={logo} alt="Premium Gems Lanka" className="h-[48px] w-auto self-start" />
             <p className="text-[13px] text-ivory-muted leading-relaxed">
               Sri Lanka's finest certified authentic gems — ethically sourced, expertly cut, curated by local experts.
             </p>

@@ -5,6 +5,21 @@ import { ChevronDown, HelpCircle, ArrowRight, Check } from 'lucide-react';
 import { api, JournalPost } from '../lib/api';
 import { MOCK_JOURNAL } from '../lib/mock';
 
+// Assets
+import heroBg from '../assets/hero_bg_srilankan_v2.png';
+import ourStoryBg from '../assets/our_story_bg.jpg';
+import blueSapphire from '../assets/gems/blue-sapphire.jpg';
+import padparadscha from '../assets/gems/padparadscha.jpg';
+import tealSapphire from '../assets/gems/teal-sapphire.jpg';
+import starRuby from '../assets/gems/star-ruby.jpg';
+import whiteSapphire from '../assets/gems/white-sapphire.jpg';
+import pinkSapphire from '../assets/gems/pink-sapphire.jpg';
+import yellowSapphire from '../assets/gems/yellow-sapphire.jpg';
+import starSapphire from '../assets/gems/star-sapphire.jpg';
+import diff1 from '../assets/Premium Gems Lanka Difference-1.png';
+import diff2 from '../assets/Premium Gems Lanka Difference-2.png';
+import diff3 from '../assets/Premium Gems Lanka Difference-3.png';
+
 const faqData = [
   {
     question: "Are your gemstones natural?",
@@ -47,7 +62,7 @@ export default function Home() {
       {/* Hero */}
       <section className="relative h-screen min-h-[680px] flex items-center">
         <div className="absolute inset-0 z-0">
-          <img src="/src/react-app/assets/hero_bg_srilankan_v2.png" alt="Gemstone workshop" className="w-full h-full object-cover" />
+          <img src={heroBg} alt="Gemstone workshop" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-obsidian/90 via-obsidian/60 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-b from-obsidian/30 via-transparent to-obsidian" />
         </div>
@@ -86,7 +101,7 @@ export default function Home() {
           transition={{ duration: 1.5, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <img src="/our_story_bg.jpg" alt="Custom Order" className="w-full h-full object-cover opacity-40" />
+          <img src={ourStoryBg} alt="Custom Order" className="w-full h-full object-cover opacity-40" />
           <div className="absolute inset-0 bg-obsidian/60" />
           <div className="absolute inset-0 bg-gradient-to-r from-obsidian via-transparent to-obsidian" />
         </motion.div>
@@ -141,10 +156,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[2px] mb-16">
             {[
-              { name: 'Royal Blue Sapphire', price: '$4,200', img: '/src/react-app/assets/gems/blue-sapphire.jpg' },
-              { name: 'Padparadscha', price: '$8,500', img: '/src/react-app/assets/gems/padparadscha.jpg' },
-              { name: 'Teal Sapphire', price: '$3,100', img: '/src/react-app/assets/gems/teal-sapphire.jpg' },
-              { name: 'Star Ruby', price: '$5,800', img: '/src/react-app/assets/gems/star-ruby.jpg' }
+              { name: 'Royal Blue Sapphire', price: '$4,200', img: blueSapphire },
+              { name: 'Padparadscha', price: '$8,500', img: padparadscha },
+              { name: 'Teal Sapphire', price: '$3,100', img: tealSapphire },
+              { name: 'Star Ruby', price: '$5,800', img: starRuby }
             ].map((gem, i) => (
               <Link key={i} to="/shop" className="group relative aspect-[4/5] overflow-hidden bg-obsidian-800">
                 <img src={gem.img} alt={gem.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" />
@@ -180,14 +195,14 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-[2px]">
             {[
-              { name: 'Blue Sapphire', img: '/src/react-app/assets/gems/blue-sapphire.jpg' },
-              { name: 'Teal Sapphire', img: '/src/react-app/assets/gems/teal-sapphire.jpg' },
-              { name: 'White Sapphire', img: '/src/react-app/assets/gems/white-sapphire.jpg' },
-              { name: 'Pink Sapphire', img: '/src/react-app/assets/gems/pink-sapphire.jpg' },
-              { name: 'Padparadscha', img: '/src/react-app/assets/gems/padparadscha.jpg' },
-              { name: 'Yellow Sapphire', img: '/src/react-app/assets/gems/yellow-sapphire.jpg' },
-              { name: 'Star Sapphire', img: '/src/react-app/assets/gems/star-sapphire.jpg' },
-              { name: 'Star Ruby', img: '/src/react-app/assets/gems/star-ruby.jpg' }
+              { name: 'Blue Sapphire', img: blueSapphire },
+              { name: 'Teal Sapphire', img: tealSapphire },
+              { name: 'White Sapphire', img: whiteSapphire },
+              { name: 'Pink Sapphire', img: pinkSapphire },
+              { name: 'Padparadscha', img: padparadscha },
+              { name: 'Yellow Sapphire', img: yellowSapphire },
+              { name: 'Star Sapphire', img: starSapphire },
+              { name: 'Star Ruby', img: starRuby }
             ].map((cat, i) => (
               <Link key={i} to="/shop" className="group relative aspect-square overflow-hidden bg-obsidian">
                 <img src={cat.img} alt={cat.name} className="w-full h-full object-cover opacity-65 transition-transform duration-700 group-hover:scale-105" />
@@ -211,11 +226,11 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {[
-              { title: 'Authentic Sri Lankan Origin', desc: 'Directly sourced from trusted local miners and suppliers.', img: '/Users/kumarapathma/.gemini/antigravity/brain/814bf529-6902-4189-9ba8-872d34dc32f2/origin_mine_1776943228375.png' },
-              { title: 'Heated & Unheated Options', desc: 'Transparent selection to suit both collectors and commercial buyers.', img: '/Users/kumarapathma/.gemini/antigravity/brain/814bf529-6902-4189-9ba8-872d34dc32f2/heated_unheated_gems_1776943257283.png' },
-              { title: 'Wide Gem Variety', desc: 'From sapphires and rubies to spinel, garnet, tourmaline, and more.', img: '/Users/kumarapathma/.gemini/antigravity/brain/814bf529-6902-4189-9ba8-872d34dc32f2/gem_variety_collection_v2_1776943294293.png' },
-              { title: 'Quality Assurance', desc: 'Each gemstone is inspected for natural authenticity and quality standards.', img: '/Users/kumarapathma/.gemini/antigravity/brain/814bf529-6902-4189-9ba8-872d34dc32f2/gemologist_inspection_v2_1776943328657.png' },
-              { title: 'Worldwide Service', desc: 'Serving clients locally and internationally with professionalism and care.', img: '/Users/kumarapathma/.gemini/antigravity/brain/814bf529-6902-4189-9ba8-872d34dc32f2/global_shipping_luxury_v2_1776943368492.png' },
+              { title: 'Authentic Sri Lankan Origin', desc: 'Directly sourced from trusted local miners and suppliers.', img: blueSapphire },
+              { title: 'Heated & Unheated Options', desc: 'Transparent selection to suit both collectors and commercial buyers.', img: tealSapphire },
+              { title: 'Wide Gem Variety', desc: 'From sapphires and rubies to spinel, garnet, tourmaline, and more.', img: pinkSapphire },
+              { title: 'Quality Assurance', desc: 'Each gemstone is inspected for natural authenticity and quality standards.', img: whiteSapphire },
+              { title: 'Worldwide Service', desc: 'Serving clients locally and internationally with professionalism and care.', img: yellowSapphire },
             ].map((item, i) => (
               <div key={i} className="flex flex-col gap-6 group">
                 <div className="aspect-square rounded-2xl overflow-hidden bg-obsidian-800 border border-gold/10">
@@ -302,17 +317,17 @@ export default function Home() {
               {
                 title: 'Direct Sourcing',
                 desc: 'We are based in Kandy, Sri Lanka, sourcing the finest gems directly from the source, ensuring authenticity and value.',
-                img: '/src/react-app/assets/Premium Gems Lanka Difference-1.png'
+                img: diff1
               },
               {
                 title: 'Ethical Practices',
                 desc: 'We are committed to responsible practices, ensuring every gem is mined and processed under fair conditions.',
-                img: '/src/react-app/assets/Premium Gems Lanka Difference-2.png'
+                img: diff2
               },
               {
                 title: 'Expert Selection',
                 desc: 'Each stone is hand-selected and verified by our in-house gemologists to meet the highest standards of quality.',
-                img: '/src/react-app/assets/Premium Gems Lanka Difference-3.png'
+                img: diff3
               }
             ].map((item, i) => (
               <motion.div 
@@ -367,7 +382,7 @@ export default function Home() {
                       <img src={post.hero_image_url} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" />
                       <div className="absolute inset-0 bg-gradient-to-t from-obsidian/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
-                    <div className="flex flex-col flex-grow">
+                    <div className="flex flex-grow flex-col">
                       <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-gold-dim mb-4">
                         <span>{new Date(post.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
                         <span className="w-1 h-1 rounded-full bg-gold/30" />

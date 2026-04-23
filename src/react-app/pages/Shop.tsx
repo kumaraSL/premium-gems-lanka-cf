@@ -6,6 +6,44 @@ import { MOCK_PRODUCTS } from '../lib/mock';
 import { useCart } from '../contexts/CartContext';
 import { CATEGORIES, SHAPES, COLORS, TREATMENTS } from '../constants';
 
+// Import shape images
+import oval from '../assets/gems/shapes/oval.png';
+import round from '../assets/gems/shapes/round.png';
+import pear from '../assets/gems/shapes/pear.png';
+import cushion from '../assets/gems/shapes/cushion.png';
+import heart from '../assets/gems/shapes/heart.png';
+import marquise from '../assets/gems/shapes/marquise.png';
+import octagonalRectangle from '../assets/gems/shapes/octagonal-rectangle.png';
+import octagonalSquare from '../assets/gems/shapes/octagonal-square.png';
+import trillion from '../assets/gems/shapes/trillion.png';
+import cabochonRound from '../assets/gems/shapes/cabochon-round.png';
+import cabochonOval from '../assets/gems/shapes/cabochon-oval.png';
+import cabochonPear from '../assets/gems/shapes/cabochon-pear.png';
+import cabochonSugarloaf from '../assets/gems/shapes/cabochon-sugarloaf.png';
+
+const SHAPE_IMAGES: Record<string, string> = {
+  'Oval': oval,
+  'Round': round,
+  'Pear': pear,
+  'Cushion': cushion,
+  'Heart': heart,
+  'Marquise': marquise,
+  'Emerald': octagonalRectangle,
+  'Octagon': octagonalSquare,
+  'Triangle': trillion,
+  'Princess': octagonalSquare,
+  'Radiant': octagonalRectangle,
+  'Asscher': octagonalSquare,
+  'Baguette': octagonalRectangle,
+  'Hexagon': octagonalSquare,
+  'Kite': trillion,
+  'Cabochon': cabochonRound,
+  'Cabochon Round': cabochonRound,
+  'Cabochon Oval': cabochonOval,
+  'Cabochon Pear': cabochonPear,
+  'Cabochon Sugarloaf': cabochonSugarloaf,
+};
+
 export default function Shop() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -121,18 +159,7 @@ export default function Shop() {
               {openFilters.shape && (
                 <div className="grid grid-cols-2 gap-2 max-h-64 overflow-y-auto pr-1 pt-2">
                   {['All', ...SHAPES].map(shape => {
-                    const imgName = shape === 'All' ? null : 
-                      shape === 'Emerald' ? 'octagonal-rectangle.png' :
-                      shape === 'Octagon' ? 'octagonal-square.png' :
-                      shape === 'Triangle' ? 'trillion.png' :
-                      shape === 'Princess' ? 'octagonal-square.png' :
-                      shape === 'Radiant' ? 'octagonal-rectangle.png' :
-                      shape === 'Asscher' ? 'octagonal-square.png' :
-                      shape === 'Baguette' ? 'octagonal-rectangle.png' :
-                      shape === 'Hexagon' ? 'octagonal-square.png' :
-                      shape === 'Kite' ? 'trillion.png' :
-                      shape === 'Cabochon' ? 'cabochon-round.png' :
-                      `${shape.toLowerCase()}.png`;
+                    const imgSrc = shape === 'All' ? null : SHAPE_IMAGES[shape];
                     
                     return (
                       <button 
@@ -146,7 +173,7 @@ export default function Shop() {
                           <div className="w-10 h-10 flex items-center justify-center border border-dashed border-gold/30 rounded-lg text-[10px]">ALL</div>
                         ) : (
                           <img 
-                            src={`/src/react-app/assets/gems/shapes/${imgName}`} 
+                            src={imgSrc} 
                             alt={shape} 
                             className={`w-10 h-10 object-contain invert opacity-80 ${filters.shape === shape ? 'opacity-100' : ''}`} 
                             onError={(e) => (e.currentTarget.style.display = 'none')}

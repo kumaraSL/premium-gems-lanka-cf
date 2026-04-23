@@ -155,10 +155,19 @@ app.get('/api/products', async (c) => {
   query += ` LIMIT ${limit}`;
 
   const { results } = await c.env.DB.prepare(query).bind(...params).all();
-  const products = results.map((p: any) => ({
-    ...p,
-    images: JSON.parse(p.images || '[]'),
-  }));
+  const products = results.map((p: any) => {
+    const imageUrl = p.image_url && !p.image_url.startsWith('http') 
+      ? getPublicUrl(p.image_url, c.env.PUBLIC_R2_URL) 
+      : p.image_url;
+    
+    return {
+      ...p,
+      image_url: imageUrl,
+      images: JSON.parse(p.images || '[]').map((img: string) => 
+        !img.startsWith('http') ? getPublicUrl(img, c.env.PUBLIC_R2_URL) : img
+      ),
+    };
+  });
   return c.json({ products });
 });
 
@@ -404,10 +413,22 @@ app.get('/api/journal', async (c) => {
   const { results } = await c.env.DB.prepare(
     `SELECT * FROM journal_posts ORDER BY created_at DESC LIMIT ${limit}`
   ).all();
-  const posts = results.map((p: any) => ({
-    ...p,
-    sections: JSON.parse(p.sections || '[]'),
-  }));
+  const posts = results.map((p: any) => {
+    const heroImageUrl = p.hero_image_url && !p.hero_image_url.startsWith('http')
+      ? getPublicUrl(p.hero_image_url, c.env.PUBLIC_R2_URL)
+      : p.hero_image_url;
+
+    return {
+      ...p,
+      hero_image_url: heroImageUrl,
+      sections: JSON.parse(p.sections || '[]').map((section: any) => ({
+        ...section,
+        imageUrl: section.imageUrl && !section.imageUrl.startsWith('http')
+          ? getPublicUrl(section.imageUrl, c.env.PUBLIC_R2_URL)
+          : section.imageUrl
+      })),
+    };
+  });
   return c.json({ posts });
 });
 
