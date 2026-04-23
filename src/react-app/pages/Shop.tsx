@@ -159,7 +159,7 @@ export default function Shop() {
               {openFilters.shape && (
                 <div className="grid grid-cols-2 gap-2 max-h-64 overflow-y-auto pr-1 pt-2">
                   {['All', ...SHAPES].map(shape => {
-                    const imgSrc = shape === 'All' ? null : SHAPE_IMAGES[shape];
+                    const imgSrc = shape === 'All' ? undefined : SHAPE_IMAGES[shape];
                     
                     return (
                       <button 
