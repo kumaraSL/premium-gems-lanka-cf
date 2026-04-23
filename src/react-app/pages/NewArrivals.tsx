@@ -4,11 +4,13 @@ import { api, Product } from '../lib/api';
 import { MOCK_PRODUCTS } from '../lib/mock';
 import { useCart } from '../contexts/CartContext';
 import { Plus } from 'lucide-react';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 export default function NewArrivals() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const { addToCart } = useCart();
+  useDocumentTitle('New Arrivals');
 
   useEffect(() => {
     api.products.list({ sort: 'new', limit: 12 })

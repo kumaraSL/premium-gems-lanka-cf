@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown, Minus, Plus, CheckCircle } from 'lucide-react';
 import { api } from '../lib/api';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 const SHAPES_DATA = [
   { id: 'trillion', name: 'TRILLION', type: 'faceted' },
@@ -19,6 +20,7 @@ const SHAPES_DATA = [
 const INTENSITIES = ['VERY LIGHT', 'LIGHT', 'MEDIUM INTENSE', 'INTENSE', 'VIVID', 'DEEP'];
 
 export default function CustomOrder() {
+  useDocumentTitle('Bespoke Custom Orders');
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);

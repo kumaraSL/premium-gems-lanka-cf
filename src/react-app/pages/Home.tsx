@@ -41,6 +41,7 @@ const faqData = [
 ];
 
 export default function Home() {
+  useDocumentTitle('Certified Authentic Ceylon Gemstones');
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [journalPosts, setJournalPosts] = useState<JournalPost[]>([]);
   const [loadingJournal, setLoadingJournal] = useState(true);
